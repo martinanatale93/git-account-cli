@@ -1,0 +1,46 @@
+{
+  "name": "git-account-cli",
+  "version": "1.0.0",
+  "description": "CLI to manage multiple GitHub accounts per folder with SSH keys",
+  "main": "dist/index.js",
+  "bin": {
+    "git-account": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "npx ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "git",
+    "github",
+    "multi-account",
+    "ssh",
+    "cli",
+    "account-manager",
+    "ssh-keys"
+  ],
+  "author": "Martina Natale",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinanatale93/git-account-cli.git"
+  },
+  "homepage": "https://github.com/martinanatale93/git-account-cli#readme",
+  "bugs": {
+    "url": "https://github.com/martinanatale93/git-account-cli/issues"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^9.3.8"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.9",
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3"
+  }
+}
