@@ -8,7 +8,7 @@ const PACKAGE_NAME = "git-account-cli";
 /**
  * Get the current version from package.json.
  */
-function getCurrentVersion(): string {
+export function getCurrentVersion(): string {
   try {
     const pkgPath = path.join(__dirname, "..", "package.json");
     const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));

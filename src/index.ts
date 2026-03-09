@@ -39,6 +39,43 @@ import {
   showRemoteConversionResults,
 } from "./ui";
 import { checkForUpdates } from "./update-checker";
+import {
+  versionCommand,
+  helpCommand,
+  listCommand,
+  currentCommand,
+  switchCommand,
+} from "./commands";
+
+// ── Command router ────────────────────────────────────────────────
+const arg = process.argv[2];
+
+if (arg === "--version" || arg === "-v") {
+  versionCommand();
+  process.exit(0);
+}
+
+if (arg === "--help" || arg === "-h" || arg === "help") {
+  helpCommand();
+  process.exit(0);
+}
+
+if (arg === "list") {
+  listCommand();
+  process.exit(0);
+}
+
+if (arg === "current") {
+  currentCommand();
+  process.exit(0);
+}
+
+if (arg === "switch") {
+  switchCommand(process.argv[3]);
+  process.exit(0);
+}
+
+// ── Interactive setup (default, no subcommand) ────────────────────
 
 async function main(): Promise<void> {
   const currentDir = process.cwd();

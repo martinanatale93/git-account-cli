@@ -23,6 +23,14 @@ The CLI will:
 5. Configure the folder's git identity and SSH settings automatically
 6. **Detect HTTPS remotes** and convert them to SSH (so the correct account is always used)
 
+Or use subcommands for quick actions:
+
+```bash
+git-account list               # See all configured accounts
+git-account current            # Check which account this folder uses
+git-account switch <username>  # Instantly switch account for this folder
+```
+
 ## Requirements
 
 - **Node.js** 16 or later
@@ -80,19 +88,32 @@ cd git-account-cli && git pull && npm install && npm run build
 
 ## Usage
 
-### 1. Navigate to the folder you want to configure
+### Quick Reference
+
+```bash
+git-account                      # Interactive setup (add account + configure folder)
+git-account list                 # List all configured accounts
+git-account current              # Show active account for current folder
+git-account switch <username>    # Switch account for current folder
+git-account --help               # Show help
+git-account --version            # Show version
+```
+
+### Interactive Setup
+
+#### 1. Navigate to the folder you want to configure
 
 ```bash
 cd ~/projects/my-work-repo
 ```
 
-### 2. Run the command
+#### 2. Run the command
 
 ```bash
 git-account
 ```
 
-### 3. Follow the interactive prompts
+#### 3. Follow the interactive prompts
 
 **If you have existing accounts configured:**
 
@@ -137,6 +158,59 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI... john@company.com
 
 ✔ All done! This folder is now configured.
 ```
+
+### Listing Accounts
+
+```bash
+git-account list
+```
+
+```
+Configured Git Accounts
+
+1. john-work ◀ current
+   email: john@company.com
+   ssh:   /Users/you/.ssh/github_john-work
+   added: 3/6/2026
+
+2. john-personal
+   email: john@gmail.com
+   ssh:   /Users/you/.ssh/github_john-personal
+   added: 3/1/2026
+
+Current account (this folder): john-work
+```
+
+### Checking Current Account
+
+```bash
+git-account current
+```
+
+```
+Current Git Identity
+   Folder: /Users/you/projects/my-work-repo
+
+   Name:   john-work
+   Email:  john@company.com
+   SSH key: /Users/you/.ssh/github_john-work
+   Host:    github-john-work
+```
+
+### Switching Accounts
+
+```bash
+git-account switch john-personal
+```
+
+```
+✔ Switched to account: john-personal
+   Email:   john@gmail.com
+   SSH key: /Users/you/.ssh/github_john-personal
+   Folder:  /Users/you/projects/my-work-repo
+```
+
+This updates the folder's git identity, SSH key, and remote URLs in one step.
 
 ## How It Works
 
@@ -188,6 +262,20 @@ cd ~/projects/another-work-repo
 git-account
 # → Select "john@company.com (john-work)" from the list
 # → Done instantly, no new key needed
+```
+
+Once both accounts are set up, switching is instant:
+
+```bash
+cd ~/projects/some-repo
+git-account switch john-work       # Use work account here
+
+cd ~/projects/another-repo
+git-account switch john-personal   # Use personal account here
+
+# Verify anytime:
+git-account current
+git-account list
 ```
 
 ## Compatibility

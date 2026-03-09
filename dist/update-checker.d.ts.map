@@ -1,1 +1,1 @@
-{"version":3,"file":"update-checker.d.ts","sourceRoot":"","sources":["../src/update-checker.ts"],"names":[],"mappings":"AA2EA;;;;GAIG;AACH,wBAAsB,eAAe,IAAI,OAAO,CAAC,IAAI,CAAC,CAwBrD"}
+{"version":3,"file":"update-checker.d.ts","sourceRoot":"","sources":["../src/update-checker.ts"],"names":[],"mappings":"AAOA;;GAEG;AACH,wBAAgB,iBAAiB,IAAI,MAAM,CAQ1C;AAyDD;;;;GAIG;AACH,wBAAsB,eAAe,IAAI,OAAO,CAAC,IAAI,CAAC,CAwBrD"}

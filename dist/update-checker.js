@@ -36,6 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCurrentVersion = getCurrentVersion;
 exports.checkForUpdates = checkForUpdates;
 const https = __importStar(require("https"));
 const path = __importStar(require("path"));

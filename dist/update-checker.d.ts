@@ -1,4 +1,8 @@
 /**
+ * Get the current version from package.json.
+ */
+export declare function getCurrentVersion(): string;
+/**
  * Check for updates and print a message if a newer version is available.
  * This is non-blocking and silent on failure — it should never prevent
  * the tool from running.

@@ -1,6 +1,6 @@
 {
   "name": "git-account-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CLI to manage multiple GitHub accounts per folder with SSH keys",
   "main": "dist/index.js",
   "bin": {
@@ -18,7 +18,11 @@
     "ssh",
     "cli",
     "account-manager",
-    "ssh-keys"
+    "ssh-keys",
+    "git-config",
+    "git-identity",
+    "account-switch",
+    "developer-tools"
   ],
   "author": "Martina Natale",
   "license": "MIT",

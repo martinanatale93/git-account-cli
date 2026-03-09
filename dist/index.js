@@ -6,6 +6,30 @@ const ssh_1 = require("./ssh");
 const git_1 = require("./git");
 const ui_1 = require("./ui");
 const update_checker_1 = require("./update-checker");
+const commands_1 = require("./commands");
+// ── Command router ────────────────────────────────────────────────
+const arg = process.argv[2];
+if (arg === "--version" || arg === "-v") {
+    (0, commands_1.versionCommand)();
+    process.exit(0);
+}
+if (arg === "--help" || arg === "-h" || arg === "help") {
+    (0, commands_1.helpCommand)();
+    process.exit(0);
+}
+if (arg === "list") {
+    (0, commands_1.listCommand)();
+    process.exit(0);
+}
+if (arg === "current") {
+    (0, commands_1.currentCommand)();
+    process.exit(0);
+}
+if (arg === "switch") {
+    (0, commands_1.switchCommand)(process.argv[3]);
+    process.exit(0);
+}
+// ── Interactive setup (default, no subcommand) ────────────────────
 async function main() {
     const currentDir = process.cwd();
     // Start update check in background (non-blocking)
